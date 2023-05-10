@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CalendarDelegate: AnyObject {
-    func selectDate(date: Date?, excersize: Excersize?)
+    func selectDate(date: Date?, exercise: Exercise?)
 }
 
 class CalendarTableViewCell: UITableViewCell {
@@ -18,7 +18,7 @@ class CalendarTableViewCell: UITableViewCell {
     static let identifier = "CalendarTableViewCell"
     
     private var calendarData: CalendarData?
-    private var excersizeData: [Excersize]?
+    private var excersizeData: [Exercise]?
     
     var delegate: CalendarDelegate?
 
@@ -33,9 +33,9 @@ class CalendarTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setData(calendar : CalendarData, excersize: [Excersize]) {
+    func setData(calendar : CalendarData, exercise: [Exercise]) {
         self.calendarData = calendar
-        self.excersizeData = excersize
+        self.excersizeData = exercise
     }
 }
 
@@ -72,8 +72,8 @@ extension CalendarTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         }
 
         cell.contentsImage.backgroundColor = .clear
-        for excersize in excersizeData {
-            if day == excersize.date?.day {
+        for exercise in excersizeData {
+            if day == exercise.date?.day {
                 cell.contentsImage.backgroundColor = .orange
                 break
             }
@@ -89,16 +89,16 @@ extension CalendarTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         let dateComponents = DateComponents(year: calendar.year, month: calendar.month, day: Int(calendar.day[indexPath.item]))
         let date = Calendar.current.date(from: dateComponents)
         
-        var excersize: Excersize?
+        var exercise: Exercise?
         if let excersizeData = self.excersizeData {
             for item in excersizeData {
                 if date?.day == item.date?.day {
-                    excersize = item
+                    exercise = item
                     break
                 }
             }
         }
         
-        self.delegate?.selectDate(date: date, excersize: excersize)
+        self.delegate?.selectDate(date: date, exercise: exercise)
     }
 }

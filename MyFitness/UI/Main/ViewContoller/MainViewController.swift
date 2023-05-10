@@ -22,7 +22,7 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
     private var nextComponents = DateComponents()
     
     private var calendarList: [CalendarData] = []
-    private var excersizeList: [Excersize] = []
+    private var excersizeList: [Exercise] = []
     private var enableLoading: Bool = false
     
     override func viewDidLoad() {
@@ -130,24 +130,24 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         
         let data = CoreDataManager.shared.fetch(entity: Entity.self)
         data.forEach {
-            let excersize = Excersize(date: $0.date, distance: $0.distance, time: $0.time, kcal: $0.kcal)
-            excersizeList.append(excersize)
+            let exercise = Exercise(date: $0.date, distance: $0.distance, time: $0.time, kcal: $0.kcal)
+            excersizeList.append(exercise)
         }
         excersizeList.sort(by: { $0.date!.compare($1.date!) == .orderedAscending })
     }
     
-    func getExcersize(year: Int, month: Int) -> [Excersize] {
-        var resultList: [Excersize] = []
-        for excersize in excersizeList {
-            if excersize.date?.year == year, excersize.date?.month == month {
-                resultList.append(excersize)
+    func getExcersize(year: Int, month: Int) -> [Exercise] {
+        var resultList: [Exercise] = []
+        for exercise in excersizeList {
+            if exercise.date?.year == year, exercise.date?.month == month {
+                resultList.append(exercise)
             }
         }
         
         return resultList
     }
     
-    func selectDate(date: Date?, excersize: Excersize?) {
+    func selectDate(date: Date?, exercise: Exercise?) {
         guard let date = date else {
             return
         }
@@ -156,11 +156,11 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         let addVC = storyboard.instantiateViewController(withIdentifier: AddViewController.identifier) as! AddViewController
         addVC.delegate = self
         addVC.date = date
-        if excersize != nil {
+        if exercise != nil {
             addVC.isModify = true
-            addVC.distance = excersize?.distance
-            addVC.time = excersize?.time
-            addVC.kcal = excersize?.kcal
+            addVC.distance = exercise?.distance
+            addVC.time = exercise?.time
+            addVC.kcal = exercise?.kcal
         }
         
         self.navigationController?.pushViewController(addVC, animated: true)
@@ -186,7 +186,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         if calendarList.count > indexPath.row {
             let data = calendarList[indexPath.row]
             let excersizeList = self.getExcersize(year: data.year, month: data.month)
-            cell.setData(calendar: data, excersize: excersizeList)
+            cell.setData(calendar: data, exercise: excersizeList)
             cell.collectionView.reloadData()
         }
         

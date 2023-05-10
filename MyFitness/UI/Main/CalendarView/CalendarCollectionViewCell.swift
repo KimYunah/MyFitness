@@ -14,7 +14,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CalendarCollectionViewCell"
     
-    private var excersizeData: Excersize?
+    private var excersizeData: Exercise?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,10 +23,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         contentsImage.layer.cornerRadius = dayLabel.frame.width / 2
     }
     
-    func setData(excersize: Excersize) {
-        self.excersizeData = excersize
+    func setData(exercise: Exercise) {
+        self.excersizeData = exercise
         
-        dayLabel.text = String(excersize.date?.day ?? 0)
+        dayLabel.text = String(exercise.date?.day ?? 0)
         contentsImage.backgroundColor = .orange
     }
 
