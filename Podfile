@@ -8,6 +8,7 @@ target 'MyFitnes' do
   # Pods for MyFitnes
 
 pod 'MaterialComponents/LibraryInfo'
-pod 'RealmSwift', '~>10'
+pod 'GoogleMLKit/TextRecognition', '3.2.0'
+pod 'GoogleMLKit/TextRecognitionKorean', '3.2.0'
 
 end
