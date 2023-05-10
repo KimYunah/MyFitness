@@ -18,7 +18,7 @@
 		827CB4942980081300FBEFF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827CB4932980081300FBEFF6 /* SceneDelegate.swift */; };
 		827CB4962980081300FBEFF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827CB4952980081300FBEFF6 /* MainViewController.swift */; };
 		827CB4992980081300FBEFF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827CB4972980081300FBEFF6 /* Main.storyboard */; };
-		827CB49C2980081300FBEFF6 /* MyFitnes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 827CB49A2980081300FBEFF6 /* MyFitnes.xcdatamodeld */; };
+		827CB49C2980081300FBEFF6 /* MyFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */; };
 		827CB49E2980081400FBEFF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827CB49D2980081400FBEFF6 /* Assets.xcassets */; };
 		827CB4A12980081400FBEFF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827CB49F2980081400FBEFF6 /* LaunchScreen.storyboard */; };
 		8290354D298B3B1000ECA865 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290354C298B3B1000ECA865 /* CoreDataManager.swift */; };
@@ -35,7 +35,7 @@
 		824992F3298A1F740006397D /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
 		824992F5298A2DA90006397D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		824992F7298A406D0006397D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		827CB48E2980081300FBEFF6 /* MyFitnes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitnes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		827CB48E2980081300FBEFF6 /* MyFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827CB4912980081300FBEFF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		827CB4932980081300FBEFF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		827CB4952980081300FBEFF6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		827CB4852980081300FBEFF6 = {
 			isa = PBXGroup;
 			children = (
-				827CB4902980081300FBEFF6 /* MyFitnes */,
+				827CB4902980081300FBEFF6 /* MyFitness */,
 				827CB48F2980081300FBEFF6 /* Products */,
 				0EF60EB32B93E95B6DD89007 /* Pods */,
 				B4AEB36A61ACECCD4A0FA0B4 /* Frameworks */,
@@ -84,12 +84,12 @@
 		827CB48F2980081300FBEFF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				827CB48E2980081300FBEFF6 /* MyFitnes.app */,
+				827CB48E2980081300FBEFF6 /* MyFitness.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		827CB4902980081300FBEFF6 /* MyFitnes */ = {
+		827CB4902980081300FBEFF6 /* MyFitness */ = {
 			isa = PBXGroup;
 			children = (
 				827CB4912980081300FBEFF6 /* AppDelegate.swift */,
@@ -99,7 +99,7 @@
 				827CB49D2980081400FBEFF6 /* Assets.xcassets */,
 				827CB49F2980081400FBEFF6 /* LaunchScreen.storyboard */,
 				827CB4A22980081400FBEFF6 /* Info.plist */,
-				827CB49A2980081300FBEFF6 /* MyFitnes.xcdatamodeld */,
+				827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */,
 				8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */,
 				8232CB7F2980100E00453130 /* CalendarTableViewCell.xib */,
 				8232CB822980102800453130 /* CalendarCollectionViewCell.swift */,
@@ -110,7 +110,7 @@
 				8290354C298B3B1000ECA865 /* CoreDataManager.swift */,
 				8290354E298B3CE500ECA865 /* Excersize.swift */,
 			);
-			path = MyFitnes;
+			path = MyFitness;
 			sourceTree = "<group>";
 		};
 		B4AEB36A61ACECCD4A0FA0B4 /* Frameworks */ = {
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		827CB48D2980081300FBEFF6 /* MyFitnes */ = {
+		827CB48D2980081300FBEFF6 /* MyFitness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 827CB4A52980081400FBEFF6 /* Build configuration list for PBXNativeTarget "MyFitnes" */;
+			buildConfigurationList = 827CB4A52980081400FBEFF6 /* Build configuration list for PBXNativeTarget "MyFitness" */;
 			buildPhases = (
 				12067FC5096FF73C719A48A2 /* [CP] Check Pods Manifest.lock */,
 				827CB48A2980081300FBEFF6 /* Sources */,
@@ -139,9 +139,9 @@
 			);
 			dependencies = (
 			);
-			name = MyFitnes;
+			name = MyFitness;
 			productName = MyFitnes;
-			productReference = 827CB48E2980081300FBEFF6 /* MyFitnes.app */;
+			productReference = 827CB48E2980081300FBEFF6 /* MyFitness.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 827CB4892980081300FBEFF6 /* Build configuration list for PBXProject "MyFitnes" */;
+			buildConfigurationList = 827CB4892980081300FBEFF6 /* Build configuration list for PBXProject "MyFitness" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -172,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				827CB48D2980081300FBEFF6 /* MyFitnes */,
+				827CB48D2980081300FBEFF6 /* MyFitness */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +259,7 @@
 				8232CB842980102800453130 /* CalendarCollectionViewCell.swift in Sources */,
 				8232CB872980165B00453130 /* CalendarData.swift in Sources */,
 				824992F6298A2DA90006397D /* AddViewController.swift in Sources */,
-				827CB49C2980081300FBEFF6 /* MyFitnes.xcdatamodeld in Sources */,
+				827CB49C2980081300FBEFF6 /* MyFitness.xcdatamodeld in Sources */,
 				8290354F298B3CE500ECA865 /* Excersize.swift in Sources */,
 				827CB4962980081300FBEFF6 /* MainViewController.swift in Sources */,
 				827CB4922980081300FBEFF6 /* AppDelegate.swift in Sources */,
@@ -412,13 +412,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9477PE6E52;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyFitnes/Info.plist;
+				INFOPLIST_FILE = MyFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -446,13 +447,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9477PE6E52;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyFitnes/Info.plist;
+				INFOPLIST_FILE = MyFitness/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -477,7 +479,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		827CB4892980081300FBEFF6 /* Build configuration list for PBXProject "MyFitnes" */ = {
+		827CB4892980081300FBEFF6 /* Build configuration list for PBXProject "MyFitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				827CB4A32980081400FBEFF6 /* Debug */,
@@ -486,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		827CB4A52980081400FBEFF6 /* Build configuration list for PBXNativeTarget "MyFitnes" */ = {
+		827CB4A52980081400FBEFF6 /* Build configuration list for PBXNativeTarget "MyFitness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				827CB4A62980081400FBEFF6 /* Debug */,
@@ -498,13 +500,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		827CB49A2980081300FBEFF6 /* MyFitnes.xcdatamodeld */ = {
+		827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				827CB49B2980081300FBEFF6 /* MyFitnes.xcdatamodel */,
 			);
 			currentVersion = 827CB49B2980081300FBEFF6 /* MyFitnes.xcdatamodel */;
-			path = MyFitnes.xcdatamodeld;
+			path = MyFitness.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

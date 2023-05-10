@@ -1,6 +1,6 @@
 //
 //  CalendarTableViewCell.swift
-//  MyFitnes
+//  MyFitness
 //
 //  Created by UMC on 2023/01/24.
 //

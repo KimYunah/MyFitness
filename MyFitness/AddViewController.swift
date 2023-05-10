@@ -1,6 +1,6 @@
 //
 //  AddViewController.swift
-//  MyFitnes
+//  MyFitness
 //
 //  Created by UMC on 2023/02/01.
 //

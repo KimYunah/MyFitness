@@ -1,6 +1,6 @@
 //
 //  CoreDataManager.swift
-//  MyFitnes
+//  MyFitness
 //
 //  Created by UMC on 2023/02/02.
 //
@@ -13,7 +13,7 @@ class CoreDataManager {
     private init() {}
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "MyFitnes")
+        let container = NSPersistentContainer(name: "MyFitness")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
