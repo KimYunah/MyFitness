@@ -18,7 +18,8 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
     
     private let nowDate = Date()
     private let calendar = Calendar.current
-    private var components = DateComponents()
+    private var prevComponents = DateComponents()
+    private var nextComponents = DateComponents()
     
     private var calendarList: [CalendarData] = []
     private var excersizeList: [Excersize] = []
@@ -31,16 +32,11 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         self.container = appDelegate.persistentContainer
         
         initView()
-        
         initData()
-        // dummy data
-        components.month = components.month! - 1
-        calculation()
-        
         getData()
         
         DispatchQueue.main.async {
-            self.tableView.scrollToRow(at: IndexPath(row: self.calendarList.count - 1, section: 0), at: .bottom, animated: false)
+            self.tableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .bottom, animated: false)
         }
     }
     
@@ -50,17 +46,29 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
     }
 
     private func initData() {
+        var components = DateComponents()
         components.year = calendar.component(.year, from: nowDate)
         components.month = calendar.component(.month, from: nowDate)
         components.day = 1
         
-        calculation()
+        // 현재 월
+        calendarList.insert(calculation(components: components), at: 0)
+        
+        // 이전 월
+        prevComponents = components
+        prevComponents.month = components.month! - 1
+        calendarList.insert(calculation(components: prevComponents), at: 0)
+        
+        // 다음 월
+        nextComponents = components
+        nextComponents.month = nextComponents.month! + 1
+        calendarList.append(calculation(components: nextComponents))
     }
 
     /**
      월 별 일 수 계산
      */
-    private func calculation() {
+    private func calculation(components: DateComponents) -> CalendarData {
         let firstDayOfMonth = calendar.date(from: components)
         let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth!) // 해당 수로 반환이 됩니다. 1은 일요일 ~ 7은 토요일
         let daysCountInMonth = calendar.range(of: .day, in: .month, for: firstDayOfMonth!)!.count
@@ -88,13 +96,20 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
             }
         }
         
-        calendarList.insert(CalendarData(year: year, month: month, day: days), at: 0)
+        return CalendarData(year: year, month: month, day: days)
+//        calendarList.insert(CalendarData(year: year, month: month, day: days), at: 0)
     }
     
-    private func addCalendarData() {
-        components.month = components.month! - 1
-        calculation()
+    private func addCalendarData(isFront: Bool) {
+        if isFront {
+            prevComponents.month = prevComponents.month! - 1
+            calendarList.insert(calculation(components: prevComponents), at: 0)
+        } else {
+            nextComponents.month = nextComponents.month! + 1
+            calendarList.append(calculation(components: nextComponents))
+        }
     }
+    
     private func reload() {
         tableView.reloadData()
     }
@@ -164,7 +179,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print("tableView cellForRowAt indexPath \(indexPath.row)")
+//        print("tableView cellForRowAt indexPath \(indexPath.row) data: \(calendarList[indexPath.row].month)")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.identifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell() }
 
         cell.delegate = self
@@ -181,51 +196,55 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("tableView willDisplay row: \(indexPath.row) data: \(calendarList[indexPath.row].month)")
-        
-        // Title Label 설정
-        let calendar = calendarList[indexPath.row]
-        self.label.text = "\(calendar.year)년 \(calendar.month)월"
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("tableView didEndDisplaying row: \(indexPath.row) data: \(calendarList[indexPath.row].month)")
-    }
 }
 
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("contentOffset.y : \(self.tableView.contentOffset.y)")
-//        print("contentSize.height : \(self.tableView.contentSize.height)")
-//        print("bounds.size.height : \(self.tableView.bounds.size.height)")
         let offsetY = self.tableView.contentOffset.y
         let contentHeight = self.tableView.contentSize.height
         let boundsHeight = self.tableView.bounds.size.height
-
-//        if offsetY >= (contentHeight - boundsHeight - 20), !enableLoading {
-//            print("끝에 도달")
-//            enableLoading = true
-//            clickAddData(nil)
-//            clickReload(nil)
-//            enableLoading = false
-//        }
+//        print("contentOffset.y : \(self.tableView.contentOffset.y)")
+//        print("contentSize.height : \(self.tableView.contentSize.height)")
+//        print("bounds.size.height : \(self.tableView.bounds.size.height)")
+        
+        // Title Label 설정
+        let y = offsetY + (boundsHeight/2)  // 좌표보정을 위해 절반의 높이를 더해줌
+        let newPage = Int(y / boundsHeight)
+        let calendar = calendarList[newPage]
+        if !(self.label.text?.contains("\(calendar.month)월") ?? false) {
+            self.label.text = "\(calendar.year)년 \(calendar.month)월"
+        }
+        
+        // (이전 / 이후) 달력 정보 설정
 //        if contentHeight > 0, offsetY < boundsHeight + 20, !enableLoading {
         if offsetY < boundsHeight + 20, !enableLoading {
 //            print("앞에 도달")
             enableLoading = true
-
+            
+            let firstCalendar = calendarList[1]
             let firstMonth = calendarList[1].month
-            addCalendarData()
+            // 추가
+            addCalendarData(isFront: true)
+            // scroll 이동
             DispatchQueue.main.async {
-                let row = self.calendarList.firstIndex(where: {$0.month == firstMonth}) ?? 1
+                let row = self.calendarList.firstIndex(where: {
+                    $0.month == firstMonth && $0.year == firstCalendar.year
+                }) ?? 1
                 if row > -1 {
                     self.tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .top, animated: false)
                 }
             }
 
-            reload()
+            self.reload()
+            enableLoading = false
+        } else if offsetY >= (contentHeight - boundsHeight - 20), !enableLoading {
+//            print("끝에 도달")
+            enableLoading = true
+            
+            // 추가
+            addCalendarData(isFront: false)
+
+            self.reload()
             enableLoading = false
         }
     }
