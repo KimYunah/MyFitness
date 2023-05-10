@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771B330E6A3048A27B989015 /* Pods_MyFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */; };
 		8232CB802980100E00453130 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */; };
 		8232CB812980100E00453130 /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8232CB7F2980100E00453130 /* CalendarTableViewCell.xib */; };
 		8232CB842980102800453130 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232CB822980102800453130 /* CalendarCollectionViewCell.swift */; };
@@ -23,11 +24,11 @@
 		827CB4A12980081400FBEFF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827CB49F2980081400FBEFF6 /* LaunchScreen.storyboard */; };
 		8290354D298B3B1000ECA865 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290354C298B3B1000ECA865 /* CoreDataManager.swift */; };
 		8290354F298B3CE500ECA865 /* Excersize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290354E298B3CE500ECA865 /* Excersize.swift */; };
-		877BFE1A7313F7FE97C26003 /* Pods_MyFitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E80351DED136A3D0447CDE01 /* Pods_MyFitnes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		603428B94C96C49D0A5E8ED6 /* Pods-MyFitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitnes.debug.xcconfig"; path = "Target Support Files/Pods-MyFitnes/Pods-MyFitnes.debug.xcconfig"; sourceTree = "<group>"; };
+		614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		8232CB7F2980100E00453130 /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
 		8232CB822980102800453130 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -46,8 +47,9 @@
 		827CB4A22980081400FBEFF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8290354C298B3B1000ECA865 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8290354E298B3CE500ECA865 /* Excersize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excersize.swift; sourceTree = "<group>"; };
+		9B3D5B6C1BACA36444EB79EB /* Pods-MyFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitness.release.xcconfig"; path = "Target Support Files/Pods-MyFitness/Pods-MyFitness.release.xcconfig"; sourceTree = "<group>"; };
+		CD133F5859525960C6A2A71B /* Pods-MyFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitness.debug.xcconfig"; path = "Target Support Files/Pods-MyFitness/Pods-MyFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		CE30A28A05A21C2EDE1BCE54 /* Pods-MyFitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitnes.release.xcconfig"; path = "Target Support Files/Pods-MyFitnes/Pods-MyFitnes.release.xcconfig"; sourceTree = "<group>"; };
-		E80351DED136A3D0447CDE01 /* Pods_MyFitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				877BFE1A7313F7FE97C26003 /* Pods_MyFitnes.framework in Frameworks */,
+				771B330E6A3048A27B989015 /* Pods_MyFitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +69,8 @@
 			children = (
 				603428B94C96C49D0A5E8ED6 /* Pods-MyFitnes.debug.xcconfig */,
 				CE30A28A05A21C2EDE1BCE54 /* Pods-MyFitnes.release.xcconfig */,
+				CD133F5859525960C6A2A71B /* Pods-MyFitness.debug.xcconfig */,
+				9B3D5B6C1BACA36444EB79EB /* Pods-MyFitness.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,7 +120,7 @@
 		B4AEB36A61ACECCD4A0FA0B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E80351DED136A3D0447CDE01 /* Pods_MyFitnes.framework */,
+				614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,7 +212,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyFitnes-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MyFitness-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,15 +225,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C85CCC444B48782918452EA0 /* [CP] Embed Pods Frameworks */ = {
@@ -238,15 +242,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFitnes/Pods-MyFitnes-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -408,7 +412,7 @@
 		};
 		827CB4A62980081400FBEFF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 603428B94C96C49D0A5E8ED6 /* Pods-MyFitnes.debug.xcconfig */;
+			baseConfigurationReference = CD133F5859525960C6A2A71B /* Pods-MyFitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,7 +447,7 @@
 		};
 		827CB4A72980081400FBEFF6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE30A28A05A21C2EDE1BCE54 /* Pods-MyFitnes.release.xcconfig */;
+			baseConfigurationReference = 9B3D5B6C1BACA36444EB79EB /* Pods-MyFitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
