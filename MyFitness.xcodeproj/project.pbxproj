@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D9778192A0B6DC4002094FF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9778182A0B6DC4002094FF /* UIViewController.swift */; };
 		5D97781B2A0B6E71002094FF /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97781A2A0B6E71002094FF /* DateManager.swift */; };
+		5D9778262A0B7392002094FF /* MyFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9778242A0B7392002094FF /* MyFitness.xcdatamodeld */; };
 		771B330E6A3048A27B989015 /* Pods_MyFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */; };
 		8232CB802980100E00453130 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */; };
 		8232CB812980100E00453130 /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8232CB7F2980100E00453130 /* CalendarTableViewCell.xib */; };
@@ -21,7 +22,6 @@
 		827CB4942980081300FBEFF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827CB4932980081300FBEFF6 /* SceneDelegate.swift */; };
 		827CB4962980081300FBEFF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827CB4952980081300FBEFF6 /* MainViewController.swift */; };
 		827CB4992980081300FBEFF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827CB4972980081300FBEFF6 /* Main.storyboard */; };
-		827CB49C2980081300FBEFF6 /* MyFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */; };
 		827CB49E2980081400FBEFF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827CB49D2980081400FBEFF6 /* Assets.xcassets */; };
 		827CB4A12980081400FBEFF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827CB49F2980081400FBEFF6 /* LaunchScreen.storyboard */; };
 		8290354D298B3B1000ECA865 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290354C298B3B1000ECA865 /* CoreDataManager.swift */; };
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		5D9778182A0B6DC4002094FF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5D97781A2A0B6E71002094FF /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		5D9778252A0B7392002094FF /* MyFitness.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyFitness.xcdatamodel; sourceTree = "<group>"; };
 		603428B94C96C49D0A5E8ED6 /* Pods-MyFitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitnes.debug.xcconfig"; path = "Target Support Files/Pods-MyFitnes/Pods-MyFitnes.debug.xcconfig"; sourceTree = "<group>"; };
 		614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		827CB4932980081300FBEFF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		827CB4952980081300FBEFF6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		827CB4982980081300FBEFF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		827CB49B2980081300FBEFF6 /* MyFitnes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyFitnes.xcdatamodel; sourceTree = "<group>"; };
 		827CB49D2980081400FBEFF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		827CB4A02980081400FBEFF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		827CB4A22980081400FBEFF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			children = (
 				8290354E298B3CE500ECA865 /* Exercise.swift */,
 				8232CB862980165B00453130 /* CalendarData.swift */,
-				827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */,
+				5D9778242A0B7392002094FF /* MyFitness.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -324,9 +324,9 @@
 			files = (
 				8232CB842980102800453130 /* CalendarCollectionViewCell.swift in Sources */,
 				8232CB872980165B00453130 /* CalendarData.swift in Sources */,
+				5D9778262A0B7392002094FF /* MyFitness.xcdatamodeld in Sources */,
 				5D9778192A0B6DC4002094FF /* UIViewController.swift in Sources */,
 				824992F6298A2DA90006397D /* AddViewController.swift in Sources */,
-				827CB49C2980081300FBEFF6 /* MyFitness.xcdatamodeld in Sources */,
 				8290354F298B3CE500ECA865 /* Exercise.swift in Sources */,
 				827CB4962980081300FBEFF6 /* MainViewController.swift in Sources */,
 				827CB4922980081300FBEFF6 /* AppDelegate.swift in Sources */,
@@ -568,12 +568,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		827CB49A2980081300FBEFF6 /* MyFitness.xcdatamodeld */ = {
+		5D9778242A0B7392002094FF /* MyFitness.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				827CB49B2980081300FBEFF6 /* MyFitnes.xcdatamodel */,
+				5D9778252A0B7392002094FF /* MyFitness.xcdatamodel */,
 			);
-			currentVersion = 827CB49B2980081300FBEFF6 /* MyFitnes.xcdatamodel */;
+			currentVersion = 5D9778252A0B7392002094FF /* MyFitness.xcdatamodel */;
 			path = MyFitness.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
