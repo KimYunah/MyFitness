@@ -8,7 +8,5 @@ target 'MyFitness' do
   # Pods for MyFitness
 
 pod 'MaterialComponents/LibraryInfo'
-pod 'GoogleMLKit/TextRecognition', '3.2.0'
-pod 'GoogleMLKit/TextRecognitionKorean', '3.2.0'
 
 end

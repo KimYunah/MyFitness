@@ -7,14 +7,13 @@
 
 import UIKit
 import CoreData
+import Combine
 
 class MainViewController: UIViewController, CalendarDelegate, AddViewControllerDelegate {
-
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    
-    private var container: NSPersistentContainer!
     
     private let nowDate = Date()
     private let calendar = Calendar.current
@@ -22,14 +21,11 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
     private var nextComponents = DateComponents()
     
     private var calendarList: [CalendarData] = []
-    private var excersizeList: [Exercise] = []
+    private var exerciseList: [Exercise] = []
     private var enableLoading: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.container = appDelegate.persistentContainer
         
         initView()
         initData()
@@ -44,7 +40,7 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         let nibName = UINib(nibName: CalendarTableViewCell.identifier, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: CalendarTableViewCell.identifier)
     }
-
+    
     private func initData() {
         var components = DateComponents()
         components.year = calendar.component(.year, from: nowDate)
@@ -64,7 +60,7 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         nextComponents.month = nextComponents.month! + 1
         calendarList.append(calculation(components: nextComponents))
     }
-
+    
     /**
      월 별 일 수 계산
      */
@@ -73,17 +69,17 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         let firstWeekday = calendar.component(.weekday, from: firstDayOfMonth!) // 해당 수로 반환이 됩니다. 1은 일요일 ~ 7은 토요일
         let daysCountInMonth = calendar.range(of: .day, in: .month, for: firstDayOfMonth!)!.count
         let weekdayAdding = 2 - firstWeekday // 이 과정을 해주는 이유는 예를 들어 2020년 4월이라 하면 4월 1일은 수요일 즉, 수요일이 달의 첫날이 됩니다.  수요일은 component의 4 이므로 CollectionView에서 앞의 3일은 비울 필요가 있으므로 인덱스가 1일부터 시작할 수 있도록 해줍니다. 그래서 2 - 4 해서 -2부터 시작하게 되어  정확히 3일 후부터 1일이 시작하게 됩니다.
-
-/*
-    1 일요일 2 - 1  -> 0번 인덱스부터 1일 시작
-    2 월요일 2 - 2  -> 1번 인덱스부터 1일 시작
-    3 화요일 2 - 3  -> 2번 인덱스부터 1일 시작
-    4 수요일 2 - 4  -> 3번 인덱스부터 1일 시작
-    5 목요일 2 - 5  -> 4번 인덱스부터 1일 시작
-    6 금요일 2 - 6  -> 5번 인덱스부터 1일 시작
-    7 토요일 2 - 7  -> 6번 인덱스부터 1일 시작
-*/
-
+        
+        /*
+         1 일요일 2 - 1  -> 0번 인덱스부터 1일 시작
+         2 월요일 2 - 2  -> 1번 인덱스부터 1일 시작
+         3 화요일 2 - 3  -> 2번 인덱스부터 1일 시작
+         4 수요일 2 - 4  -> 3번 인덱스부터 1일 시작
+         5 목요일 2 - 5  -> 4번 인덱스부터 1일 시작
+         6 금요일 2 - 6  -> 5번 인덱스부터 1일 시작
+         7 토요일 2 - 7  -> 6번 인덱스부터 1일 시작
+         */
+        
         let year = calendar.component(.year, from: firstDayOfMonth!)
         let month = calendar.component(.month, from: firstDayOfMonth!)
         
@@ -97,7 +93,7 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
         }
         
         return CalendarData(year: year, month: month, day: days)
-//        calendarList.insert(CalendarData(year: year, month: month, day: days), at: 0)
+        //        calendarList.insert(CalendarData(year: year, month: month, day: days), at: 0)
     }
     
     private func addCalendarData(isFront: Bool) {
@@ -115,30 +111,33 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
     }
     
     private func getData() {
-//        do {
-//            let data = try self.container.viewContext.fetch(Entity.fetchRequest()) as! [Entity]
-//            data.forEach {
-//                print($0.date)
-//                print($0.distance)
-//                print($0.time)
-//                print($0.kcal)
-//                  }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-        excersizeList.removeAll()
+        //        do {
+        //            let data = try self.container.viewContext.fetch(Entity.fetchRequest()) as! [Entity]
+        //            data.forEach {
+        //                print($0.date)
+        //                print($0.distance)
+        //                print($0.time)
+        //                print($0.kcal)
+        //                  }
+        //        } catch {
+        //            print(error.localizedDescription)
+        //        }
+        exerciseList.removeAll()
         
         let data = CoreDataManager.shared.fetch(entity: Entity.self)
         data.forEach {
-            let exercise = Exercise(date: $0.date, distance: $0.distance, time: $0.time, kcal: $0.kcal)
-            excersizeList.append(exercise)
+            let exercise = Exercise(date: $0.date,
+                                    distance: $0.distance,
+                                    time: $0.time,
+                                    kcal: $0.kcal)
+            exerciseList.append(exercise)
         }
-        excersizeList.sort(by: { $0.date!.compare($1.date!) == .orderedAscending })
+        exerciseList.sort(by: { $0.date!.compare($1.date!) == .orderedAscending })
     }
     
-    func getExcersize(year: Int, month: Int) -> [Exercise] {
+    func getExercise(year: Int, month: Int) -> [Exercise] {
         var resultList: [Exercise] = []
-        for exercise in excersizeList {
+        for exercise in exerciseList {
             if exercise.date?.year == year, exercise.date?.month == month {
                 resultList.append(exercise)
             }
@@ -152,8 +151,7 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
             return
         }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let addVC = storyboard.instantiateViewController(withIdentifier: AddViewController.identifier) as! AddViewController
+        let addVC = AddViewController.instance("Main")
         addVC.delegate = self
         addVC.date = date
         if exercise != nil {
@@ -162,30 +160,30 @@ class MainViewController: UIViewController, CalendarDelegate, AddViewControllerD
             addVC.time = exercise?.time
             addVC.kcal = exercise?.kcal
         }
-        
-        self.navigationController?.pushViewController(addVC, animated: true)
+        navigationController?.pushViewController(addVC, animated: true)
     }
     
     func refresh() {
         getData()
         reload()
     }
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("tableView numberOfRowsInSection : \(calendarList.count)")
+        //        print("tableView numberOfRowsInSection : \(calendarList.count)")
         return calendarList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print("tableView cellForRowAt indexPath \(indexPath.row) data: \(calendarList[indexPath.row].month)")
+        //        print("tableView cellForRowAt indexPath \(indexPath.row) data: \(calendarList[indexPath.row].month)")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.identifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell() }
-
+        
         cell.delegate = self
         if calendarList.count > indexPath.row {
             let data = calendarList[indexPath.row]
-            let excersizeList = self.getExcersize(year: data.year, month: data.month)
+            let excersizeList = getExercise(year: data.year, month: data.month)
             cell.setData(calendar: data, exercise: excersizeList)
             cell.collectionView.reloadData()
         }
@@ -203,9 +201,9 @@ extension MainViewController: UIScrollViewDelegate {
         let offsetY = self.tableView.contentOffset.y
         let contentHeight = self.tableView.contentSize.height
         let boundsHeight = self.tableView.bounds.size.height
-//        print("contentOffset.y : \(self.tableView.contentOffset.y)")
-//        print("contentSize.height : \(self.tableView.contentSize.height)")
-//        print("bounds.size.height : \(self.tableView.bounds.size.height)")
+        //        print("contentOffset.y : \(self.tableView.contentOffset.y)")
+        //        print("contentSize.height : \(self.tableView.contentSize.height)")
+        //        print("bounds.size.height : \(self.tableView.bounds.size.height)")
         
         // Title Label 설정
         let y = offsetY + (boundsHeight/2)  // 좌표보정을 위해 절반의 높이를 더해줌
@@ -216,9 +214,9 @@ extension MainViewController: UIScrollViewDelegate {
         }
         
         // (이전 / 이후) 달력 정보 설정
-//        if contentHeight > 0, offsetY < boundsHeight + 20, !enableLoading {
+        //        if contentHeight > 0, offsetY < boundsHeight + 20, !enableLoading {
         if offsetY < boundsHeight + 20, !enableLoading {
-//            print("앞에 도달")
+            //            print("앞에 도달")
             enableLoading = true
             
             let firstCalendar = calendarList[1]
@@ -234,16 +232,16 @@ extension MainViewController: UIScrollViewDelegate {
                     self.tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .top, animated: false)
                 }
             }
-
+            
             self.reload()
             enableLoading = false
         } else if offsetY >= (contentHeight - boundsHeight - 20), !enableLoading {
-//            print("끝에 도달")
+            //            print("끝에 도달")
             enableLoading = true
             
             // 추가
             addCalendarData(isFront: false)
-
+            
             self.reload()
             enableLoading = false
         }

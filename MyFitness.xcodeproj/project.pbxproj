@@ -10,6 +10,10 @@
 		5D9778192A0B6DC4002094FF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9778182A0B6DC4002094FF /* UIViewController.swift */; };
 		5D97781B2A0B6E71002094FF /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97781A2A0B6E71002094FF /* DateManager.swift */; };
 		5D9778262A0B7392002094FF /* MyFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9778242A0B7392002094FF /* MyFitness.xcdatamodeld */; };
+		5D9778282A0B8301002094FF /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9778272A0B8301002094FF /* PermissionManager.swift */; };
+		5DB18C572AC2AE9E00CF27F7 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB18C562AC2AE9E00CF27F7 /* HealthKitManager.swift */; };
+		5DB18C592AC2B7FA00CF27F7 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB18C582AC2B7FA00CF27F7 /* Toast.swift */; };
+		5DF4BD0B2A0CB9CD0086DC75 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4BD0A2A0CB9CD0086DC75 /* String.swift */; };
 		771B330E6A3048A27B989015 /* Pods_MyFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */; };
 		8232CB802980100E00453130 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */; };
 		8232CB812980100E00453130 /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8232CB7F2980100E00453130 /* CalendarTableViewCell.xib */; };
@@ -32,6 +36,11 @@
 		5D9778182A0B6DC4002094FF /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5D97781A2A0B6E71002094FF /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		5D9778252A0B7392002094FF /* MyFitness.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyFitness.xcdatamodel; sourceTree = "<group>"; };
+		5D9778272A0B8301002094FF /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		5DB18C552AC2AD8C00CF27F7 /* MyFitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitness.entitlements; sourceTree = "<group>"; };
+		5DB18C562AC2AE9E00CF27F7 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		5DB18C582AC2B7FA00CF27F7 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		5DF4BD0A2A0CB9CD0086DC75 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		603428B94C96C49D0A5E8ED6 /* Pods-MyFitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFitnes.debug.xcconfig"; path = "Target Support Files/Pods-MyFitnes/Pods-MyFitnes.debug.xcconfig"; sourceTree = "<group>"; };
 		614DDD6EAE3C4C5AAFEBB31B /* Pods_MyFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8232CB7E2980100E00453130 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				824992F7298A406D0006397D /* Date.swift */,
+				5DF4BD0A2A0CB9CD0086DC75 /* String.swift */,
 				5D9778182A0B6DC4002094FF /* UIViewController.swift */,
 			);
 			path = Extension;
@@ -93,6 +103,9 @@
 			children = (
 				8290354C298B3B1000ECA865 /* CoreDataManager.swift */,
 				5D97781A2A0B6E71002094FF /* DateManager.swift */,
+				5D9778272A0B8301002094FF /* PermissionManager.swift */,
+				5DB18C562AC2AE9E00CF27F7 /* HealthKitManager.swift */,
+				5DB18C582AC2B7FA00CF27F7 /* Toast.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 		827CB4902980081300FBEFF6 /* MyFitness */ = {
 			isa = PBXGroup;
 			children = (
+				5DB18C552AC2AD8C00CF27F7 /* MyFitness.entitlements */,
 				5D9778132A0B6BDE002094FF /* Data */,
 				5D9778112A0B6BB3002094FF /* Extension */,
 				5D9778122A0B6BC0002094FF /* Utils */,
@@ -199,7 +213,6 @@
 				827CB48B2980081300FBEFF6 /* Frameworks */,
 				827CB48C2980081300FBEFF6 /* Resources */,
 				C85CCC444B48782918452EA0 /* [CP] Embed Pods Frameworks */,
-				B01FEFA2F7B48774567F0A13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,23 +294,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B01FEFA2F7B48774567F0A13 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyFitness/Pods-MyFitness-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C85CCC444B48782918452EA0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,9 +320,12 @@
 			files = (
 				8232CB842980102800453130 /* CalendarCollectionViewCell.swift in Sources */,
 				8232CB872980165B00453130 /* CalendarData.swift in Sources */,
+				5DB18C592AC2B7FA00CF27F7 /* Toast.swift in Sources */,
 				5D9778262A0B7392002094FF /* MyFitness.xcdatamodeld in Sources */,
 				5D9778192A0B6DC4002094FF /* UIViewController.swift in Sources */,
+				5D9778282A0B8301002094FF /* PermissionManager.swift in Sources */,
 				824992F6298A2DA90006397D /* AddViewController.swift in Sources */,
+				5DB18C572AC2AE9E00CF27F7 /* HealthKitManager.swift in Sources */,
 				8290354F298B3CE500ECA865 /* Exercise.swift in Sources */,
 				827CB4962980081300FBEFF6 /* MainViewController.swift in Sources */,
 				827CB4922980081300FBEFF6 /* AppDelegate.swift in Sources */,
@@ -334,6 +333,7 @@
 				824992F8298A406D0006397D /* Date.swift in Sources */,
 				5D97781B2A0B6E71002094FF /* DateManager.swift in Sources */,
 				8290354D298B3B1000ECA865 /* CoreDataManager.swift in Sources */,
+				5DF4BD0B2A0CB9CD0086DC75 /* String.swift in Sources */,
 				827CB4942980081300FBEFF6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyFitness/MyFitness.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -488,6 +489,11 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9477PE6E52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFitness/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용 권한";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 접근 권한 요청";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -499,10 +505,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.MyFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.myFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "UMC Public Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = healthkit;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyFitness/MyFitness.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -523,6 +530,11 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9477PE6E52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFitness/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용 권한";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Daily Heath Condition";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 접근 권한 요청";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -534,10 +546,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.MyFit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.myFit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "UMC Public Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = healthkit;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

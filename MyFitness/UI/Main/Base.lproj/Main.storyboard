@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eaz-wW-o2A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eaz-wW-o2A">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MyFitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MyFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="500" id="NwF-Vn-e3p"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uzy-cy-uSx" customClass="CalendarTableViewCell" customModule="MyFitnes" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uzy-cy-uSx" customClass="CalendarTableViewCell" customModule="MyFitness" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="353" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uzy-cy-uSx" id="fuu-sV-Gjx">
@@ -70,7 +71,7 @@
         <!--Add View Controller-->
         <scene sceneID="AKh-1K-ZI7">
             <objects>
-                <viewController storyboardIdentifier="AddViewController" id="QB1-da-msN" customClass="AddViewController" customModule="MyFitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddViewController" id="QB1-da-msN" customClass="AddViewController" customModule="MyFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A5a-vO-RnS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +152,31 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="B6K-Gd-0mZ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="o0i-Ot-cTy"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tE4-xa-qiU">
+                                <rect key="frame" x="20" y="600" width="353" height="123.66666666666663"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4r-FQ-wUh">
+                                        <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="사진 불러오기"/>
+                                        <connections>
+                                            <action selector="getPhoto:" destination="QB1-da-msN" eventType="touchUpInside" id="LPf-SN-Rx6"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X3u-UI-cu4">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="123.66666666666667"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="X3u-UI-cu4" secondAttribute="trailing" id="AAa-Tj-Ewj"/>
+                                    <constraint firstAttribute="bottom" secondItem="X3u-UI-cu4" secondAttribute="bottom" id="Haf-Cq-EFo"/>
+                                    <constraint firstItem="L4r-FQ-wUh" firstAttribute="top" secondItem="tE4-xa-qiU" secondAttribute="top" id="IbR-F2-m7C"/>
+                                    <constraint firstItem="L4r-FQ-wUh" firstAttribute="leading" secondItem="tE4-xa-qiU" secondAttribute="leading" id="Q6C-wN-fFw"/>
+                                    <constraint firstItem="X3u-UI-cu4" firstAttribute="top" secondItem="tE4-xa-qiU" secondAttribute="top" id="iqI-36-xms"/>
+                                    <constraint firstItem="X3u-UI-cu4" firstAttribute="leading" secondItem="tE4-xa-qiU" secondAttribute="leading" id="wgi-DX-pOv"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oSX-0Z-qON">
                                 <rect key="frame" x="20" y="743.66666666666663" width="353" height="34.333333333333371"/>
                                 <subviews>
@@ -172,23 +198,43 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytg-HC-3nN">
+                                <rect key="frame" x="146.66666666666666" y="475" width="100" height="101"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="OGL-wL-d6K"/>
+                                    <constraint firstAttribute="width" constant="100" id="cm3-Vv-2kl"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="jogger"/>
+                                <connections>
+                                    <action selector="addfootwalks:" destination="QB1-da-msN" eventType="touchUpInside" id="wdy-db-vrb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FSg-BA-hNC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UVD-Ug-a8R" firstAttribute="leading" secondItem="FSg-BA-hNC" secondAttribute="leading" constant="20" id="3im-wY-kcq"/>
+                            <constraint firstItem="ytg-HC-3nN" firstAttribute="top" secondItem="nzN-6S-DvY" secondAttribute="bottom" constant="24" id="4oJ-SC-xgb"/>
                             <constraint firstItem="oSX-0Z-qON" firstAttribute="leading" secondItem="FSg-BA-hNC" secondAttribute="leading" constant="20" id="88V-sr-Flb"/>
+                            <constraint firstItem="tE4-xa-qiU" firstAttribute="top" secondItem="ytg-HC-3nN" secondAttribute="bottom" constant="24" id="9aN-Vs-JPR"/>
+                            <constraint firstItem="FSg-BA-hNC" firstAttribute="trailing" secondItem="tE4-xa-qiU" secondAttribute="trailing" constant="20" id="TmZ-8K-qiq"/>
                             <constraint firstItem="oSX-0Z-qON" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UVD-Ug-a8R" secondAttribute="bottom" constant="20" id="azF-2j-O2e"/>
                             <constraint firstItem="FSg-BA-hNC" firstAttribute="trailing" secondItem="oSX-0Z-qON" secondAttribute="trailing" constant="20" id="dfa-Et-YUt"/>
+                            <constraint firstItem="oSX-0Z-qON" firstAttribute="top" secondItem="tE4-xa-qiU" secondAttribute="bottom" constant="20" id="fVB-To-pD7"/>
+                            <constraint firstItem="tE4-xa-qiU" firstAttribute="leading" secondItem="FSg-BA-hNC" secondAttribute="leading" constant="20" id="lnf-SD-Pm4"/>
                             <constraint firstItem="UVD-Ug-a8R" firstAttribute="top" secondItem="FSg-BA-hNC" secondAttribute="top" constant="50" id="nES-N8-YJB"/>
                             <constraint firstItem="FSg-BA-hNC" firstAttribute="trailing" secondItem="UVD-Ug-a8R" secondAttribute="trailing" constant="20" id="nh7-NU-yvb"/>
                             <constraint firstItem="FSg-BA-hNC" firstAttribute="bottom" secondItem="oSX-0Z-qON" secondAttribute="bottom" constant="40" id="xSa-zh-pAB"/>
+                            <constraint firstItem="ytg-HC-3nN" firstAttribute="centerX" secondItem="FSg-BA-hNC" secondAttribute="centerX" id="yIP-VN-8aA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnStackViewBottomConstraint" destination="xSa-zh-pAB" id="uur-st-72S"/>
                         <outlet property="dateTextField" destination="Yqs-l4-OAI" id="igX-Yo-Qs6"/>
                         <outlet property="distanceTextField" destination="Lxa-gP-FDO" id="CJa-P2-wcW"/>
+                        <outlet property="imageView" destination="X3u-UI-cu4" id="b9f-fH-CGL"/>
                         <outlet property="kcalTextField" destination="nzN-6S-DvY" id="JOX-33-VQi"/>
                         <outlet property="saveButton" destination="Q5B-fb-K2H" id="r1b-EQ-I5e"/>
                         <outlet property="timeTextField" destination="uoj-kI-Jre" id="MmC-oz-0qC"/>
@@ -218,6 +264,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="jogger" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
